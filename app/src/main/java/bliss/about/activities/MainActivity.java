@@ -31,7 +31,9 @@ import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.Nameable;
 import com.pkmmte.requestmanager.PkRequestManager;
@@ -46,12 +48,6 @@ public class MainActivity extends AppCompatActivity {
     private static final String MARKET_URL = "https://play.google.com/store/apps/details?id=";
 
     public Drawer result = null;
-    private String thaApp;
-    private String thaPreviews;
-    private String thaApply;
-    private String thaWalls;
-    private String thaRequest;
-    private String thaCredits;
     public String version;
     private int currentItem = -1;
     private boolean firstrun, enable_features, a;
@@ -82,19 +78,17 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        thaApp = getResources().getString(R.string.app_name);
-        String thaHome = getResources().getString(R.string.section_one);
-        thaPreviews = getResources().getString(R.string.section_two);
-        thaApply = getResources().getString(R.string.section_three);
-        thaWalls = getResources().getString(R.string.section_four);
-        thaRequest = getResources().getString(R.string.section_five);
-        thaCredits = getResources().getString(R.string.section_six);
-
         AccountHeader headerResult = new AccountHeaderBuilder()
                 .withActivity(this)
+                .withCompactStyle(true)
+                .withProfileImagesClickable(false)
+                .withProfileImagesVisible(true)
+                .addProfiles(
+                        new ProfileDrawerItem().withName("Team Bliss").withIcon(getResources().getDrawable(R.drawable.bliss))
+                )
                 .withHeaderBackground(R.drawable.header)
                 .withSelectionFirstLine(getResources().getString(R.string.app_long_name))
-                .withSelectionSecondLine("v" + Util.getAppVersion(this))
+                .withSelectionSecondLine(Build.DEVICE)
                 .withSavedInstance(savedInstanceState)
                 .build();
 
@@ -104,13 +98,23 @@ public class MainActivity extends AppCompatActivity {
         result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
+                .withDrawerWidthDp(350)
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
-                        new PrimaryDrawerItem().withName(thaHome).withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                        new PrimaryDrawerItem().withName(thaPreviews).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(2),
-                        new PrimaryDrawerItem().withName(thaApply).withIcon(GoogleMaterial.Icon.gmd_open_in_browser).withIdentifier(3),
-                        new DividerDrawerItem(),
-                        new SecondaryDrawerItem().withName(thaCredits).withIdentifier(6)
+                        new PrimaryDrawerItem().withName("Main Screen").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
+                        new PrimaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info).withIdentifier(6),
+                        new SectionDrawerItem().withName("Social Media"),
+                        new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(3),
+                        new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new SectionDrawerItem().withName("BlissRom Specifics"),
+                        new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new SectionDrawerItem().withName("About the Team"),
+                        new PrimaryDrawerItem().withName("Developers").withDescription("List of all developers of Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5)
+
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -120,26 +124,19 @@ public class MainActivity extends AppCompatActivity {
                             a = true;
                             switch (drawerItem.getIdentifier()) {
                                 case 1:
-                                    switchFragment(1, thaApp, "Home");
+
                                     break;
                                 case 2:
-                                    switchFragment(2, thaPreviews, "Previews");
+
                                     break;
                                 case 3:
-                                    switchFragment(3, thaApply, "Apply");
-                                    break;
-                                case 4:
-                                    if (Util.hasNetwork(MainActivity.this)) {
-                                        switchFragment(4, thaWalls, "Wallpapers");
-                                    } else {
-                                        showNotConnectedDialog();
-                                    }
+
                                     break;
                                 case 5:
-                                    switchFragment(5, thaRequest, "Request");
+
                                     break;
                                 case 6:
-                                    switchFragment(6, thaCredits, "Credits");
+                                    /*switchFragment(6, thaCredits, "Credits");*/
                                     break;
                             }
 
@@ -154,7 +151,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         result.getListView().setVerticalScrollBarEnabled(false);
-        runLicenseChecker();
 
         if (savedInstanceState == null) {
             currentItem = -1;
@@ -257,39 +253,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    private void addItemsToDrawer() {
-        IDrawerItem walls = new PrimaryDrawerItem().withName(thaWalls).withIcon(GoogleMaterial.Icon.gmd_landscape).withIdentifier(4);
-        IDrawerItem request = new PrimaryDrawerItem().withName(thaRequest).withIcon(GoogleMaterial.Icon.gmd_forum).withIdentifier(5);
-        if (enable_features) {
-            result.addItem(walls, 3);
-            result.addItem(request, 4);
-        }
-    }
-
-    private void runLicenseChecker() {
-        if (firstrun) {
-            if (WITH_LICENSE_CHECKER) {
-                checkLicense();
-            } else {
-                mPrefs.setFeaturesEnabled(true);
-                addItemsToDrawer();
-                showChangelogDialog();
-            }
-        } else {
-            if (WITH_LICENSE_CHECKER) {
-                if (!enable_features) {
-                    showNotLicensedDialog();
-                } else {
-                    addItemsToDrawer();
-                    showChangelogDialog();
-                }
-            } else {
-                addItemsToDrawer();
-                showChangelogDialog();
-            }
-        }
-    }
-
     private void showChangelog() {
         new MaterialDialog.Builder(this)
                 .title(R.string.changelog_dialog_title)
@@ -314,82 +277,6 @@ public class MainActivity extends AppCompatActivity {
     private void storeSharedPrefs() {
         SharedPreferences sharedPreferences = getSharedPreferences("PrefsFile", MODE_PRIVATE);
         sharedPreferences.edit().putString("version", Util.getAppVersion(this)).commit();
-    }
-
-    private void showNotConnectedDialog() {
-        new MaterialDialog.Builder(this)
-                .title(R.string.no_conn_title)
-                .content(R.string.no_conn_content)
-                .positiveText(android.R.string.ok)
-                .callback(new MaterialDialog.ButtonCallback() {
-                    @Override
-                    public void onPositive(MaterialDialog dialog) {
-                        int nSelection = currentItem - 1;
-                        if (result != null)
-                            result.setSelection(nSelection);
-                    }
-                }).show();
-    }
-
-    private void checkLicense() {
-        String installer = getPackageManager().getInstallerPackageName(getPackageName());
-        try {
-            if (installer.equals("com.google.android.feedback")
-            || installer.equals("com.android.vending")
-            || installer.equals("com.amazon.venezia") ) {
-                new MaterialDialog.Builder(this)
-                        .title(R.string.license_success_title)
-                        .content(R.string.license_success)
-                        .positiveText(R.string.close)
-                        .callback(new MaterialDialog.ButtonCallback() {
-                            @Override
-                            public void onPositive(MaterialDialog dialog) {
-                                enable_features = true;
-                                mPrefs.setFeaturesEnabled(true);
-                                addItemsToDrawer();
-                                showChangelogDialog();
-                            }
-                        }).show();
-            } else {
-                showNotLicensedDialog();
-            }
-        } catch (Exception e) {
-            showNotLicensedDialog();
-        }
-    }
-
-    private void showNotLicensedDialog() {
-        enable_features = false;
-        mPrefs.setFeaturesEnabled(false);
-        new MaterialDialog.Builder(this)
-                .title(R.string.license_failed_title)
-                .content(R.string.license_failed)
-                .positiveText(R.string.download)
-                .negativeText(R.string.exit)
-                .callback(new MaterialDialog.ButtonCallback() {
-                    @Override
-                    public void onPositive(MaterialDialog dialog) {
-                        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(MARKET_URL + getPackageName()));
-                        startActivity(browserIntent);
-                    }
-
-                    @Override
-                    public void onNegative(MaterialDialog dialog) {
-                        finish();
-                    }
-                })
-                .cancelListener(new DialogInterface.OnCancelListener() {
-                    @Override
-                    public void onCancel(DialogInterface dialog) {
-                        finish();
-                    }
-                })
-                .dismissListener(new DialogInterface.OnDismissListener() {
-                    @Override
-                    public void onDismiss(DialogInterface dialog) {
-                        finish();
-                    }
-                }).show();
     }
 
 }
