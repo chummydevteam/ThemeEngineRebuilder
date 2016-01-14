@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <!-- ROM Links -->
+    <string name="pushbullet">"https://www.pushbullet.com/channel?tag=blissroms"</string>
+    <string name="github">"https://github.com/BlissRoms"</string>
+    <string name="rom_site">"http://blissroms.com/"</string>
+    <string name="googleplus">"https://plus.google.com/u/1/communities/118265887490106132524"</string>
 
-    <!-- MainActivity Strings -->
+    <string name="zenfone2">"http://forum.xda-developers.com/zenfone2/development/official-bliss-v6-0-zenfone-2-team-bliss-t3285686"</string>
+    <string name="m8">"http://forum.xda-developers.com/htc-one-m8/development/rom-bliss-stalk-team-bliss-t2913348"</string>
+    <string name="hammerhead">"http://forum.xda-developers.com/google-nexus-5/development/rom-t2995181"</string>
+    <string name="shamu">"http://forum.xda-developers.com/nexus-6/development/rom-blisspop-team-bliss-t3077737"</string>
+    <string name="nexus7_2012">"http://forum.xda-developers.com/nexus-7/development/rom-blisspop-teambliss-t3137240"</string>
+    <string name="nexus7_2013">"http://forum.xda-developers.com/nexus-7-2013/development/rom-blisspop-teambliss-v1-8-t3011252"</string>
     <string name="lg_g2">"http://forum.xda-developers.com/lg-g2/development/rom-team-bliss-t3290984"</string>
     <string name="lg_g3">"http://forum.xda-developers.com/lg-g3/development/rom-t3290333"</string>
     <string name="lg_g4">"http://forum.xda-developers.com/g4/development/rom-blisspop-team-bliss-t3238437"</string>
@@ -10,119 +20,52 @@
     <string name="note2">"http://forum.xda-developers.com/galaxy-note-2/development/unofficial-blisspop-v3-5-n7100-t3137536"</string>
     <string name="note4">"http://forum.xda-developers.com/note-4/snapdragon-dev/official-blisspop-v4-0-3-t3230509"</string>
 
+    <string name="debug_link">"http://forum.xda-developers.com/member.php?u=3605033"</string>
+
+    <!-- MainActivity Strings -->
     <string name="app_name">"About Bliss"</string>
     <string name="app_long_name">"About Bliss"</string>
     <string name="package_name">"bliss.about"</string>
-    <string name="theme_description">PaperBoard is a Material Design based Icon Pack dashboard template. Free and Open-Sourced.</string>
+    <string name="theme_description">A truly blissful experience.</string>
 
-    <!-- Muzei Stuff -->
-    <string name="artsource_name">"PaperBoard"</string>
-    <string name="artsource_desc">"Wallpapers made by MinDesigns"</string>
-    <string name="muzei_settings">Muzei Settings</string>
-    <string name="json_file_url">"https://raw.githubusercontent.com/jahirfiquitiva/MinDesigns-Wallpapers/master/JSON-Files/walls_test.json"</string>
-    <!-- Sharing wallpaper from Muzei -->
-    <string name="partone">"My wallpaper for today is "</string>
-    <string name="parttwo">" by "</string>
-    <string name="partthree">" from "</string>
-    <string name="partfour">".\nGet it now at "</string>
-
-    <!-- Developer Account Link -->
-    <string name="play_store_dev_link">https://play.google.com/store/apps/developer?id=Jahir+Fiquitiva</string>
+    <!-- MainActivity Strings -->
+    <string name="nicholas">Nicholas Philip Chum</string>
+    <string name="nicholas_description">cdt lead themer &amp; team bliss developer</string>
+    <string name="title_libraries">list of implemented library authors</string>
+    <string name="list_of_implemeted_libraries">\nMelnykov\nAidan Follestad\nMike Penz\nBalys Valentukevicius</string>
+    <string name="license_credit">cdt would like to thank @jahirfiquitiva for the original app source. \nall licenses used are viewable in the public source and apply to this app.</string>
 
     <!-- Icon Pack designer/owner e-mail -->
-    <string name="email_id">someone@email.com</string>
-
-    <!-- Mail subjects for simple e-mail and requests e-mail -->
-    <string name="email_subject">"PaperBoard"</string>
-    <string name="email_request_subject">"PaperBoard - Icon Requests"</string>
+    <string name="email_id">nicholaschum@gmail.com</string>
 
     <!-- This are the strings for the cards in the main screen -->
-    <string name="welcome_title">Welcome to PaperBoard</string>
+    <string name="welcome_title">About Bliss</string>
+    <string name="email_request_subject">Welcome to Bliss</string>
 
-    <string name="play_card_title">Jahir Fiquitiva on Google Play</string>
-    <string name="play_card_content">"Check my other apps and download them."</string>
+    <string name="best_of_show">a plethora of features</string>
+    <string name="best_of_show_content">"We offer most of the features available from every ROM out there."</string>
 
-    <string name="app_one_title">IdeaL Themes</string>
-    <string name="app_one_content">"IdeaL is a set of four themes to give your KitKat device a full re-design and look with Material Design."</string>
-    <string name="app_one_package">"com.jaydvl.idealthemes.light"</string>
+    <string name="capability">capability</string>
+    <string name="capability_content">"a one stop shop for all your phone's features! we prefer the rom run without xposed, and believe that all the features you want should be grouped together in an organized fashion!"</string>
 
-    <string name="app_two_title">Flaterial</string>
-    <string name="app_two_content">"Flaterial is a Zooper skin with the awesome collab of Juan Saracho and Dany Flores. Material Design based/inspired widgets."</string>
-    <string name="app_two_package">"com.mindesigns.zwskin.flaterial"</string>
+    <string name="more_devices">a variety of devices</string>
+    <string name="more_devices_contents">"we don't only support one device, we support a whole chunk that cyanogenmod supports that can run the latest software."</string>
 
-    <string name="app_three_title">"Pop It!"</string>
-    <string name="app_three_content">"Pop It! is a Zooper skin with the awesome collab of Juan Saracho and Dany Flores. Material Design based/inspired widgets."</string>
-    <string name="app_three_package">"com.mindesigns.popit.zwskin"</string>
+    <string name="more_options">more options</string>
+    <string name="more_options_content">"we are very lenient on features. if you would like a feature, try and request it from our google+ community."</string>
 
-    <!-- Your card in About The App section (In desc you can use html markup)-->
-    <string name="iconpack_designer">Your Name</string>
-    <string name="iconpack_designer_desc">
-        <![CDATA[
-        I\'m a <b>designer</b>. I like <b>Android</b>. I love this <b>dashboard</b>.
-        ]]>
-    </string>
     <!-- A link to your web page, if you have one -->
-    <string name="dev_link">https://jahirfiquitiva.github.io/me/</string>
-    <string name="dev_gplus_link">"https://www.google.com/+JahirFiquitivaJDev"</string>
+    <string name="dev_link">http://forum.xda-developers.com/member.php?u=3605033</string>
+    <string name="dev_gplus_link">"https://plus.google.com/u/0/+NicholasChumCDT"</string>
 
-    <!-- Feature picture that appears above the description -->
-    <string name="theme_feature">icons_banner</string>
+    <!-- List Of Drawer Sections -->
+    <string name="section_one">Home</string>
+    <string name="section_two">Icons</string>
+    <string name="section_three">Apply</string>
+    <string name="section_four">Wallpapers</string>
+    <string name="section_five">Icon Request</string>
+    <string name="section_six">About The App</string>
 
-    <!-- Previews Pictures Names -->
-    <string name="theme_preview1">preview1</string>
-    <string name="theme_preview2">preview2</string>
-
-    <!-- Tabs Names list -->
-    <string-array name="tabs">
-        <item>LATEST</item>
-        <item>SYSTEM</item>
-        <item>GOOGLE APPS</item>
-        <item>GAMES</item>
-        <item>ALL</item>
-        <item>DRAWERS</item>
-    </string-array>
-
-    <!-- Strings for Wallpapers and Requests -->
-    <string name="request_save_location">"/PaperBoard/Requests/"</string>
-    <string name="walls_save_location">"/PaperBoard/Wallpapers/"</string>
-    <string name="walls_prefix_name">"PaperBoard_"</string>
-
-    <!-- Messages shown when using LicenseChecker -->
-    <string name="license_failed">"You are not downloading PaperBoard from Google Play Store. You have two options only:"</string>
-    <string name="license_success">"Thank you for downloading my Icon Pack Dashboard Sample. If you like it, don't forget to rate and write a review at Google Play Store."</string>
-
-    <!-- Texts you don't want to get when user downloads that wallpapers -->
-    <!-- Examples: the url of the wall, and prefixes, etc. -->
-    <!-- It replaces the texts in the order as shown. I.e. url is
-    https://raw.githubusercontent.com/MinDesigns/MinDesigns-Wallpapers/master/Wallpapers/Lines/Circles/Text/text/whatever/WallpaperName.png"
-     it will delete texts in this order:
-     1. https://raw.githubusercontent.com/MinDesigns/MinDesigns-Wallpapers/master/Wallpapers/
-     2. Lines
-     3. Circles
-     4. Text
-     5. text
-     6. whatever
-     7. (Empty text won't replace anything else).
-     And at the end the only text that will stay is "WallpaperName.png" which will be the final name of downloaded file.
-     -->
-    <string name="replace_one">"https://raw.githubusercontent.com/MinDesigns/MinDesigns-Wallpapers/master/Wallpapers/"</string>
-    <string name="replace_two">"Lines"</string>
-    <string name="replace_three">"Circles"</string>
-    <string name="replace_four">"Text"</string>
-    <string name="replace_five">"text"</string>
-    <string name="replace_six">"whatever"</string>
-    <string name="replace_seven">""</string>
-
-    <!-- These things are needed for some launchers (Feel free to edit, though is not needed) -->
-    <string name="theme_title">@string/app_name</string>
-    <string name="theme_name">@string/theme_title</string>
-    <string name="developer_name">@string/iconpack_designer</string>
-    <string name="developerName">@string/developer_name</string>
-    <string name="theme_author">@string/developer_name</string>
-    <string name="authorName">@string/developer_name</string>
-    <string name="authorLink">@string/dev_link</string>
-    <string name="theme_info">@string/theme_description</string>
-    <string name="theme_ad_msg">@string/theme_description</string>
-    <string name="title_activity_home">HomeActivity</string>
-
+    <string name="web">XDA</string>
+    <string name="gplus">GOOGLE+</string>
 </resources>

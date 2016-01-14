@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/light_bg">
+    android:background="@color/dark_bg">
 
     <com.melnykov.fab.ObservableScrollView
         android:id="@+id/HomeContent"
@@ -37,29 +37,13 @@
                     android:paddingLeft="@dimen/cards_margin"
                     android:paddingRight="@dimen/cards_margin">
 
-                    <ImageView
-                        android:id="@+id/iconsbanner"
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/icons_banner"
-                        tools:ignore="ContentDescription" />
-
                     <LinearLayout
                         android:id="@+id/description"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/iconsbanner"
                         android:layout_margin="@dimen/cards_text_margin"
+                        android:gravity="center"
                         android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/welcometest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="start|top"
-                            android:text="@string/welcome_title"
-                            android:textColor="@color/primary"
-                            android:textSize="@dimen/text_big" />
 
                         <TextView
                             android:id="@+id/welcome_contenttest"
@@ -70,30 +54,8 @@
                             android:lineSpacingMultiplier="1.2"
                             android:text="@string/theme_description"
                             android:textColor="@color/dark_grey"
-                            android:textSize="@dimen/text_small" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentEnd="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_below="@id/description"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/rate_button"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:background="?selectableItemBackgroundBorderless"
-                            android:gravity="end"
-                            android:padding="@dimen/margin_medium_sm"
-                            android:text="@string/ratebtn"
-                            android:textColor="@color/accent"
-                            android:textSize="@dimen/text_ultrasmall"
-                            android:textStyle="bold" />
+                            android:textSize="23dp"
+                            android:textStyle="bold|italic" />
 
                     </LinearLayout>
 
@@ -120,13 +82,12 @@
                     tools:ignore="RtlSymmetry">
 
                     <ImageView
-                        android:id="@+id/imageView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="113dp"
+                        android:layout_height="121dp"
                         android:contentDescription="@null"
                         android:minWidth="100dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_playstore_logo" />
+                        android:src="@drawable/bestofshow" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
@@ -141,8 +102,8 @@
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
                             android:paddingTop="16dp"
-                            android:text="@string/play_card_title"
-                            android:textColor="@color/primary"
+                            android:text="@string/best_of_show"
+                            android:textColor="@color/card_title_text"
                             android:textSize="@dimen/text_big" />
 
                         <TextView
@@ -153,7 +114,7 @@
                             android:paddingBottom="@dimen/cards_padding"
                             android:paddingLeft="@dimen/cards_padding"
                             android:paddingRight="@dimen/cards_padding"
-                            android:text="@string/play_card_content"
+                            android:text="@string/best_of_show_content"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/text_small" />
 
@@ -164,28 +125,6 @@
                             android:background="@color/divider_grey"
                             android:visibility="invisible" />
 
-                        <LinearLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="end"
-                            android:gravity="end"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/play_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:background="?selectableItemBackgroundBorderless"
-                                android:gravity="end"
-                                android:padding="@dimen/cards_padding"
-                                android:text="@string/play"
-                                android:textColor="@color/accent"
-                                android:textSize="@dimen/text_ultrasmall"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
                     </LinearLayout>
 
                 </LinearLayout>
@@ -193,7 +132,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardOne"
+                android:id="@+id/capability"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/cardView"
@@ -207,15 +146,16 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/cards_margin"
-                    android:paddingRight="@dimen/cards_margin">
+                    android:paddingRight="@dimen/cards_margin"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="113dp"
+                        android:layout_height="121dp"
                         android:contentDescription="@null"
                         android:minWidth="100dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_appone_logo" />
+                        android:src="@drawable/capability" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
@@ -223,65 +163,47 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/titleTextView2"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
                             android:paddingTop="16dp"
-                            android:text="@string/app_one_title"
-                            android:textColor="@color/primary"
+                            android:text="@string/capability"
+                            android:textColor="@color/card_title_text"
                             android:textSize="@dimen/text_big" />
 
                         <TextView
+                            android:id="@+id/descriptionTextView2"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:lineSpacingMultiplier="1.2"
                             android:paddingBottom="@dimen/cards_padding"
                             android:paddingLeft="@dimen/cards_padding"
                             android:paddingRight="@dimen/cards_padding"
-                            android:text="@string/app_one_content"
+                            android:text="@string/capability_content"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/text_small" />
 
                         <View
+                            android:id="@+id/cardDivider2"
                             android:layout_width="fill_parent"
                             android:layout_height="1px"
                             android:background="@color/divider_grey"
                             android:visibility="invisible" />
 
-                        <LinearLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_gravity="end"
-                            android:gravity="end"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/appone_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:background="?selectableItemBackgroundBorderless"
-                                android:gravity="end"
-                                android:padding="@dimen/cards_padding"
-                                android:text="@string/download"
-                                android:textColor="@color/accent"
-                                android:textSize="@dimen/text_ultrasmall"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
-
                     </LinearLayout>
+
                 </LinearLayout>
 
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardTwo"
+                android:id="@+id/moredevices"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cardOne"
+                android:layout_below="@id/capability"
                 android:layout_margin="@dimen/cards_margin"
                 card_view:cardBackgroundColor="@color/cardsbg"
                 card_view:cardCornerRadius="@dimen/card_corner_radius"
@@ -292,70 +214,52 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/cards_margin"
-                    android:paddingRight="@dimen/cards_margin">
+                    android:paddingRight="@dimen/cards_margin"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="113dp"
+                        android:layout_height="121dp"
                         android:contentDescription="@null"
                         android:minWidth="100dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_apptwo_logo" />
+                        android:src="@drawable/moredevices" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/titleTextView3"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
                             android:paddingTop="16dp"
-                            android:text="@string/app_two_title"
-                            android:textColor="@color/primary"
+                            android:text="@string/more_devices"
+                            android:textColor="@color/card_title_text"
                             android:textSize="@dimen/text_big" />
 
                         <TextView
+                            android:id="@+id/descriptionTextView3"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:lineSpacingMultiplier="1.2"
                             android:paddingBottom="@dimen/cards_padding"
                             android:paddingLeft="@dimen/cards_padding"
                             android:paddingRight="@dimen/cards_padding"
-                            android:text="@string/app_two_content"
+                            android:text="@string/more_devices_contents"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/text_small" />
 
                         <View
+                            android:id="@+id/cardDivider3"
                             android:layout_width="fill_parent"
                             android:layout_height="1px"
                             android:background="@color/divider_grey"
                             android:visibility="invisible" />
-
-                        <LinearLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_gravity="end"
-                            android:gravity="end"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/apptwo_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:background="?selectableItemBackgroundBorderless"
-                                android:gravity="end"
-                                android:padding="@dimen/cards_padding"
-                                android:text="@string/download"
-                                android:textColor="@color/accent"
-                                android:textSize="@dimen/text_ultrasmall"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
 
                     </LinearLayout>
 
@@ -364,10 +268,10 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
-                android:id="@+id/cardThree"
+                android:id="@+id/moreoptions"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/cardTwo"
+                android:layout_below="@id/moredevices"
                 android:layout_margin="@dimen/cards_margin"
                 card_view:cardBackgroundColor="@color/cardsbg"
                 card_view:cardCornerRadius="@dimen/card_corner_radius"
@@ -378,70 +282,52 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:paddingLeft="@dimen/cards_margin"
-                    android:paddingRight="@dimen/cards_margin">
+                    android:paddingRight="@dimen/cards_margin"
+                    tools:ignore="RtlSymmetry">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
+                        android:layout_width="113dp"
+                        android:layout_height="121dp"
                         android:contentDescription="@null"
                         android:minWidth="100dp"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_appthree_logo" />
+                        android:src="@drawable/moreoptions" />
 
                     <LinearLayout
                         android:layout_width="fill_parent"
-                        android:layout_height="fill_parent"
+                        android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/titleTextView4"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:paddingBottom="8dp"
                             android:paddingLeft="16dp"
                             android:paddingRight="16dp"
                             android:paddingTop="16dp"
-                            android:text="@string/app_three_title"
-                            android:textColor="@color/primary"
+                            android:text="@string/more_options"
+                            android:textColor="@color/card_title_text"
                             android:textSize="@dimen/text_big" />
 
                         <TextView
+                            android:id="@+id/descriptionTextView4"
                             android:layout_width="fill_parent"
                             android:layout_height="wrap_content"
                             android:lineSpacingMultiplier="1.2"
                             android:paddingBottom="@dimen/cards_padding"
                             android:paddingLeft="@dimen/cards_padding"
                             android:paddingRight="@dimen/cards_padding"
-                            android:text="@string/app_three_content"
+                            android:text="@string/more_options_content"
                             android:textColor="@color/dark_grey"
                             android:textSize="@dimen/text_small" />
 
                         <View
+                            android:id="@+id/cardDivider4"
                             android:layout_width="fill_parent"
                             android:layout_height="1px"
                             android:background="@color/divider_grey"
                             android:visibility="invisible" />
-
-                        <LinearLayout
-                            android:layout_width="fill_parent"
-                            android:layout_height="fill_parent"
-                            android:layout_gravity="end"
-                            android:gravity="end"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:id="@+id/appthree_button"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="end"
-                                android:background="?selectableItemBackgroundBorderless"
-                                android:gravity="end"
-                                android:padding="@dimen/cards_padding"
-                                android:text="@string/download"
-                                android:textColor="@color/accent"
-                                android:textSize="@dimen/text_ultrasmall"
-                                android:textStyle="bold" />
-
-                        </LinearLayout>
 
                     </LinearLayout>
 

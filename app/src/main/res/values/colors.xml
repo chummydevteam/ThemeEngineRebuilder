@@ -3,24 +3,27 @@
 
     <color name="primary">#000000</color>
     <color name="primary_dark">#000000</color>
-    <color name="primary_pressed">#039be5</color>
+    <color name="primary_pressed">#4a777777</color>
+
     <color name="accent">#e91e63</color>
     <color name="ripple_accent">#80e91e63</color>
     <color name="accent_pressed">#ec407a</color>
     <color name="accent_secondary">@color/accent</color>
-    <color name="secondary">#009688</color>
-    <color name="secondary_pressed">#26a69a</color>
-    <color name="navbar">#424242</color>
+
+
     <!-- Ctrl + H and search for color/cardsbg if you want to customize card colors individually-->
-    <color name="cardsbg">#ffffff</color>
+    <color name="cardsbg">#80000000</color>
     <!-- Color for Backgrounds -->
-    <color name="light_bg">#fafafa</color>
+    <color name="dark_bg">#303030</color>
     <!-- Color for texts in Dialogs -->
     <color name="dialogcontent">#6d6d6d</color>
     <!-- Color for some ripples -->
     <color name="semitransparent_white">#80ffffff</color>
     <!-- Color for texts -->
-    <color name="dark_grey">#4d4d4d</color>
+    <color name="dark_grey">#eeeeee</color>
+
+
+    <color name="card_title_text">#ffffff</color>
 
 
     <!-- Don't edit -->
@@ -28,10 +31,10 @@
     <color name="green">#4caf50</color>
     <color name="white">#ffffff</color>
     <color name="transparent">#00ffffff</color>
-    <color name="window_bg">@color/primary_dark</color>
+    <color name="window_bg">?android:colorBackground</color>
     <color name="divider_grey">#d4d4d4</color>
-    
-    
+
+
     <!--The following colors are used to switch the theme of the slide out drawer if you wish it to match the rest of your dashboard better. -->
 
 
@@ -43,7 +46,7 @@
 
     <!-- OVERWRITE THESE COLORS FOR A LIGHT THEME -->
     <!-- MaterialDrawer DEFAULT colors -->
-    <color name="material_drawer_background">#303030</color>
+    <color name="material_drawer_background">@color/dark_bg</color>
     <!-- Material DEFAULT text / items colors -->
     <color name="material_drawer_icons">#000</color>
     <color name="material_drawer_primary_text">#fff</color>
