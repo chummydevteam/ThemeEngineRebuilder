@@ -16,8 +16,10 @@ import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeader;
 import com.mikepenz.materialdrawer.accountswitcher.AccountHeaderBuilder;
+import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
@@ -25,7 +27,6 @@ import bliss.about.R;
 
 
 public class MainActivity extends AppCompatActivity {
-    public String thaApp, thaCredits;
     public String current_system_name_lower, current_system_name_upper;
     public Drawer result = null;
     public String version;
@@ -63,19 +64,19 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Main Screen").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                        new PrimaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info_outline).withIdentifier(2),
+                        new SectionDrawerItem().withName("About the Team"),
+                        new PrimaryDrawerItem().withName("Developers").withDescription("List of all developers of Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_person).withIdentifier(9),
+                        new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_group).withIdentifier(10),
+                        new SectionDrawerItem().withName("BlissRom Specifics"),
+                        new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_devices).withIdentifier(7),
+                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_list).withIdentifier(8),
                         new SectionDrawerItem().withName("Social Media"),
                         new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(3),
                         new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(4),
                         new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(5),
                         new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(6),
-                        new SectionDrawerItem().withName("BlissRom Specifics"),
-                        new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_devices).withIdentifier(7),
-                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_list).withIdentifier(8),
-                        new SectionDrawerItem().withName("About the Team"),
-                        new PrimaryDrawerItem().withName("Developers").withDescription("List of all developers of Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_person).withIdentifier(9),
-                        new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_group).withIdentifier(10)
-
+                        new DividerDrawerItem(),
+                        new SecondaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info_outline).withIdentifier(2)
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -85,10 +86,10 @@ public class MainActivity extends AppCompatActivity {
                             a = true;
                             switch (drawerItem.getIdentifier()) {
                                 case 1:
-                                    switchFragment(1, thaApp, "Home");
+                                    switchFragment(1, "About Bliss", "Home");
                                     break;
                                 case 2:
-                                    switchFragment(2, thaCredits, "Credits");
+                                    switchFragment(2, "About the App", "Credits");
                                     break;
                                 case 3:
                                     // Google+ Link

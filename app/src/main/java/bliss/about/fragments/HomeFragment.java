@@ -1,6 +1,6 @@
 package bliss.about.fragments;
 
-import android.content.pm.PackageManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.ActionBar;
@@ -8,12 +8,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.melnykov.fab.FloatingActionButton;
 import com.melnykov.fab.ObservableScrollView;
 
 import bliss.about.R;
-import bliss.about.activities.MainActivity;
 
 public class HomeFragment extends Fragment {
 
@@ -38,24 +38,13 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ((MainActivity) getActivity()).result.setSelectionByIdentifier(3);
-                ((MainActivity) getActivity()).switchFragment(3, getResources().getString(R.string.section_three), "Apply");
+                Intent intentUpdate = getActivity().getPackageManager().getLaunchIntentForPackage("bliss.updates");
+                if (intentUpdate == null) {
+                    Toast.makeText(getActivity(), ("BlissOTA not found. Please reflash your ROM."), Toast.LENGTH_SHORT).show();
+                } else startActivity(intentUpdate);
             }
         });
 
         return root;
     }
-
-    private boolean AppIsInstalled(String packageName) {
-        final PackageManager pm = getActivity().getPackageManager();
-        boolean installed;
-        try {
-            pm.getPackageInfo(packageName, PackageManager.GET_ACTIVITIES);
-            installed = true;
-        } catch (PackageManager.NameNotFoundException e) {
-            installed = false;
-        }
-        return installed;
-    }
-
 }
