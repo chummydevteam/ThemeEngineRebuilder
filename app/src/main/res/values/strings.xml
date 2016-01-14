@@ -2,6 +2,14 @@
 <resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
 
     <!-- MainActivity Strings -->
+    <string name="lg_g2">"http://forum.xda-developers.com/lg-g2/development/rom-team-bliss-t3290984"</string>
+    <string name="lg_g3">"http://forum.xda-developers.com/lg-g3/development/rom-t3290333"</string>
+    <string name="lg_g4">"http://forum.xda-developers.com/g4/development/rom-blisspop-team-bliss-t3238437"</string>
+    <string name="shieldtab">"http://forum.xda-developers.com/shield-tablet/development/beta-bliss-v6-0-shield-tablet-team-bliss-t3288806"</string>
+    <string name="s4">"http://forum.xda-developers.com/galaxy-s4/unified-development/rom-blisspop-v3-7-team-bliss-t3164334"</string>
+    <string name="note2">"http://forum.xda-developers.com/galaxy-note-2/development/unofficial-blisspop-v3-5-n7100-t3137536"</string>
+    <string name="note4">"http://forum.xda-developers.com/note-4/snapdragon-dev/official-blisspop-v4-0-3-t3230509"</string>
+
     <string name="app_name">"About Bliss"</string>
     <string name="app_long_name">"About Bliss"</string>
     <string name="package_name">"bliss.about"</string>

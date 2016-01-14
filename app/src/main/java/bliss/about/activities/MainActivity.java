@@ -46,7 +46,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static final boolean WITH_LICENSE_CHECKER = false;
     private static final String MARKET_URL = "https://play.google.com/store/apps/details?id=";
-
+    public String thaApp, thaHome, thaPreviews, thaApply, thaWalls, thaRequest, thaCredits;
+    public String current_system_name_lower, current_system_name_upper;
     public Drawer result = null;
     public String version;
     private int currentItem = -1;
@@ -95,6 +96,13 @@ public class MainActivity extends AppCompatActivity {
         enable_features = mPrefs.isFeaturesEnabled();
         firstrun = mPrefs.isFirstRun();
 
+        thaApp = getResources().getString(R.string.app_name);
+        thaHome = getResources().getString(R.string.section_one);
+        thaPreviews = getResources().getString(R.string.section_two);
+        thaApply = getResources().getString(R.string.section_three);
+        thaWalls = getResources().getString(R.string.section_four);
+        thaRequest = getResources().getString(R.string.section_five);
+
         result = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -102,18 +110,18 @@ public class MainActivity extends AppCompatActivity {
                 .withAccountHeader(headerResult)
                 .addDrawerItems(
                         new PrimaryDrawerItem().withName("Main Screen").withIcon(GoogleMaterial.Icon.gmd_home).withIdentifier(1),
-                        new PrimaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info).withIdentifier(6),
+                        new PrimaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info).withIdentifier(2),
                         new SectionDrawerItem().withName("Social Media"),
-                        new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
-                        new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
-                        new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(3),
-                        new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(3),
+                        new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(6),
                         new SectionDrawerItem().withName("BlissRom Specifics"),
-                        new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
-                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5),
+                        new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(7),
+                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(8),
                         new SectionDrawerItem().withName("About the Team"),
-                        new PrimaryDrawerItem().withName("Developers").withDescription("List of all developers of Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(4),
-                        new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(5)
+                        new PrimaryDrawerItem().withName("Developers").withDescription("List of all developers of Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(9),
+                        new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_palette).withIdentifier(10)
 
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
@@ -124,19 +132,219 @@ public class MainActivity extends AppCompatActivity {
                             a = true;
                             switch (drawerItem.getIdentifier()) {
                                 case 1:
-
+                                    switchFragment(1, thaApp, "Home");
                                     break;
                                 case 2:
-
+                                    switchFragment(2, thaCredits, "Credits");
                                     break;
                                 case 3:
-
+                                    // Google+ Link
+                                    Intent googlePlusIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://plus.google.com/u/1/communities/118265887490106132524"));
+                                    startActivity(googlePlusIntent);
                                     break;
                                 case 5:
-
+                                    // Pushbullet Link
+                                    Intent pushbulletIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.pushbullet.com/channel?tag=blissroms"));
+                                    startActivity(pushbulletIntent);
                                     break;
                                 case 6:
-                                    /*switchFragment(6, thaCredits, "Credits");*/
+                                    // GitHub Link
+                                    Intent githubIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://github.com/BlissRoms"));
+                                    startActivity(githubIntent);
+                                    break;
+                                case 7:
+                                    // Device checker
+                                    current_system_name_lower = Build.DEVICE;
+                                    current_system_name_upper = current_system_name_lower.toUpperCase();
+                                    switch (current_system_name_upper) {
+                                        // ASUS Devices
+
+                                        case "Z008":
+                                            Intent Z008 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/zenfone2/development/official-bliss-v6-0-zenfone-2-team-bliss-t3285686"));
+                                            startActivity(Z008);
+                                            break;
+                                        case "Z00A":
+                                            Intent Z00A = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/zenfone2/development/official-bliss-v6-0-zenfone-2-team-bliss-t3285686"));
+                                            startActivity(Z00A);
+                                            break;
+                                        case "M8":
+                                            Intent M8 = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/htc-one-m8/development/rom-bliss-stalk-team-bliss-t2913348"));
+                                            startActivity(M8);
+                                            break;
+
+                                        // Google Devices
+
+                                        case "HAMMERHEAD":
+                                            Intent HAMMERHEAD = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/google-nexus-5/development/rom-t2995181"));
+                                            startActivity(HAMMERHEAD);
+                                            break;
+                                        case "SHAMU":
+                                            Intent SHAMU = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-6/development/rom-blisspop-team-bliss-t3077737"));
+                                            startActivity(SHAMU);
+                                            break;
+                                        case "GROUPER":
+                                            Intent GROUPER = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-7/development/rom-blisspop-teambliss-t3137240"));
+                                            startActivity(GROUPER);
+                                            break;
+                                        case "TILAPIA":
+                                            Intent TILAPIA = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-7/development/rom-blisspop-teambliss-t3137240"));
+                                            startActivity(TILAPIA);
+                                            break;
+                                        case "FLO":
+                                            Intent FLO = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-7-2013/development/rom-blisspop-teambliss-v1-8-t3011252"));
+                                            startActivity(FLO);
+                                            break;
+                                        case "DEB":
+                                            Intent DEB = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-7-2013/development/rom-blisspop-teambliss-v1-8-t3011252"));
+                                            startActivity(DEB);
+                                            break;
+
+                                        // Nicholas' Debugging Devices
+
+                                        case "SCORPION": // debugging
+                                            Intent scorp = new Intent(Intent.ACTION_VIEW, Uri.parse("http://forum.xda-developers.com/nexus-7-2013/development/rom-blisspop-teambliss-v1-8-t3011252"));
+                                            startActivity(scorp);
+                                            break;
+
+                                        // LG G2 Variants
+
+                                        case "D800":
+                                            Intent D800 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(D800);
+                                            break;
+                                        case "D801":
+                                            Intent D801 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(D801);
+                                            break;
+                                        case "D802":
+                                            Intent D802 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(D802);
+                                            break;
+                                        case "D803":
+                                            Intent D803 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(D803);
+                                            break;
+                                        case "F320":
+                                            Intent F320 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(F320);
+                                            break;
+                                        case "LS980":
+                                            Intent LS980 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(LS980);
+                                            break;
+                                        case "VS980":
+                                            Intent VS980 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g2)));
+                                            startActivity(VS980);
+                                            break;
+
+                                        // LG G3 Variants
+
+                                        case "D850":
+                                            Intent D850 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(D850);
+                                            break;
+                                        case "D851":
+                                            Intent D851 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(D851);
+                                            break;
+                                        case "D852":
+                                            Intent D852 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(D852);
+                                            break;
+                                        case "D855":
+                                            Intent D855 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(D855);
+                                            break;
+                                        case "LS990":
+                                            Intent LS990 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(LS990);
+                                            break;
+                                        case "VS985":
+                                            Intent VS985 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g3)));
+                                            startActivity(VS985);
+                                            break;
+
+                                        // LG G4 Variants
+
+                                        case "H811":
+                                            Intent H811 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g4)));
+                                            startActivity(H811);
+                                            break;
+                                        case "H815":
+                                            Intent H815 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.lg_g4)));
+                                            startActivity(H815);
+                                            break;
+
+                                        // Motorola Devices
+
+                                        case "CLARK":
+                                            showNotSupportedDialog();
+                                            break;
+
+                                        // NVIDIA Devices
+
+                                        case "SHIELDTAB":
+                                            Intent SHIELDTAB = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.shieldtab)));
+                                            startActivity(SHIELDTAB);
+                                            break;
+
+                                        // Samsung Devices
+
+                                        case "JFLTE":
+                                            Intent JFLTE = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(JFLTE);
+                                            break;
+                                        case "JFLTEATT":
+                                            Intent JFLTEATT = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(JFLTEATT);
+                                            break;
+                                        case "JFLTETMO":
+                                            Intent JFLTETMO = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(JFLTETMO);
+                                            break;
+                                        case "JFLTEXX":
+                                            Intent JFLTEXX = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(JFLTEXX);
+                                            break;
+                                        case "JFLTESPR":
+                                            Intent JFLTESPR = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(JFLTESPR);
+                                            break;
+                                        case "I9500":
+                                            Intent I9500 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.s4)));
+                                            startActivity(I9500);
+                                            break;
+                                        case "KLTE":
+                                            showNotSupportedDialog();
+                                            break;
+                                        case "N7100":
+                                            Intent N7100 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note2)));
+                                            startActivity(N7100);
+                                            break;
+                                        case "N7105":
+                                            Intent N7105 = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note2)));
+                                            startActivity(N7105);
+                                            break;
+                                        case "TRLTEXX":
+                                            Intent TRLTEXX = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note4)));
+                                            startActivity(TRLTEXX);
+                                            break;
+                                        case "TRLTETD":
+                                            Intent TRLTETD = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note4)));
+                                            startActivity(TRLTETD);
+                                            break;
+                                        case "TRLTETMO":
+                                            Intent TRLTETMO = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note4)));
+                                            startActivity(TRLTETMO);
+                                            break;
+                                        case "TRLTECAN":
+                                            Intent TRLTECAN = new Intent(Intent.ACTION_VIEW, Uri.parse(getResources().getString(R.string.note4)));
+                                            startActivity(TRLTECAN);
+                                            break;
+                                        default:
+                                            showNotSupportedDialog();
+                                            break;
+                                    }
                                     break;
                             }
 
@@ -251,6 +459,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return true;
+    }
+
+    private void showNotSupportedDialog() {
+        new MaterialDialog.Builder(this)
+                .title("Sorry, this device does not have an XDA thread yet.")
+                .content("If you believe you are receiving this error, please contact your device maintainer.")
+                .positiveText("ALRIGHT")
+                .show();
     }
 
     private void showChangelog() {
