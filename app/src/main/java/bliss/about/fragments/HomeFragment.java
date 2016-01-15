@@ -38,7 +38,7 @@ public class HomeFragment extends Fragment {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intentUpdate = getActivity().getPackageManager().getLaunchIntentForPackage("bliss.updates");
+                Intent intentUpdate = getActivity().getPackageManager().getLaunchIntentForPackage("com.chummy.blissroms.updates");
                 if (intentUpdate == null) {
                     Toast.makeText(getActivity(), ("BlissOTA not found. Please reflash your ROM."), Toast.LENGTH_SHORT).show();
                 } else startActivity(intentUpdate);

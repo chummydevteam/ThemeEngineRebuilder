@@ -5,10 +5,61 @@
     android:layout_height="match_parent"
     android:background="@color/dark_bg">
 
+    <RelativeLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/infocard"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/cards_margin"
+            android:clickable="false"
+            card_view:cardBackgroundColor="?android:attr/colorPrimary"
+            card_view:cardCornerRadius="@dimen/card_corner_radius"
+            card_view:cardElevation="@dimen/cards_elevation">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/cards_margin"
+                android:paddingLeft="@dimen/cards_margin"
+                android:paddingRight="@dimen/cards_margin">
+
+                <LinearLayout
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/cards_text_margin"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/welcome_contenttest"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="@dimen/cards_text_margin"
+                        android:layout_marginTop="@dimen/cards_text_margin"
+                        android:lineSpacingMultiplier="1.2"
+                        android:text="@string/theme_description"
+                        android:textColor="@color/dark_grey"
+                        android:textSize="23dp"
+                        android:textStyle="bold|italic" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.CardView>
+    </RelativeLayout>
+
     <com.melnykov.fab.ObservableScrollView
         android:id="@+id/HomeContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/header"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         android:fillViewport="true"
@@ -19,49 +70,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-
-            <android.support.v7.widget.CardView
-                android:id="@+id/infocard"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="@dimen/cards_margin"
-                android:clickable="false"
-                card_view:cardBackgroundColor="@color/cardsbg"
-                card_view:cardCornerRadius="@dimen/card_corner_radius"
-                card_view:cardElevation="@dimen/cards_elevation">
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="@dimen/cards_margin"
-                    android:paddingLeft="@dimen/cards_margin"
-                    android:paddingRight="@dimen/cards_margin">
-
-                    <LinearLayout
-                        android:id="@+id/description"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/cards_text_margin"
-                        android:gravity="center"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/welcome_contenttest"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginBottom="@dimen/cards_text_margin"
-                            android:layout_marginTop="@dimen/cards_text_margin"
-                            android:lineSpacingMultiplier="1.2"
-                            android:text="@string/theme_description"
-                            android:textColor="@color/dark_grey"
-                            android:textSize="23dp"
-                            android:textStyle="bold|italic" />
-
-                    </LinearLayout>
-
-                </RelativeLayout>
-
-            </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
                 android:id="@+id/cardView"
@@ -349,6 +357,6 @@
         android:layout_marginBottom="@dimen/cards_padding"
         android:layout_marginEnd="@dimen/cards_padding"
         android:layout_marginRight="@dimen/cards_padding"
-        android:src="@drawable/ic_apply_icons" />
+        android:src="@drawable/cloud_download" />
 
 </RelativeLayout>

@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 .withProfileImagesClickable(false)
                 .withProfileImagesVisible(true)
                 .addProfiles(
-                        new ProfileDrawerItem().withName("Team Bliss").withIcon(getResources().getDrawable(R.drawable.bliss))
+                        new ProfileDrawerItem().withName("Team Bliss").withIcon(getResources().getDrawable(R.drawable.bliss_logo))
                 )
                 .withHeaderBackground(android.R.color.black)
                 .withSelectionFirstLine(getResources().getString(R.string.app_long_name))
@@ -69,12 +69,12 @@ public class MainActivity extends AppCompatActivity {
                         new PrimaryDrawerItem().withName("Maintainers").withDescription("List of maintainers for Team Bliss.").withIcon(GoogleMaterial.Icon.gmd_group).withIdentifier(10),
                         new SectionDrawerItem().withName("BlissRom Specifics"),
                         new PrimaryDrawerItem().withName("Current Device Thread").withDescription("Launch the XDA page for this device.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_devices).withIdentifier(7),
-                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_list).withIdentifier(8),
+                        new PrimaryDrawerItem().withName("All Supported Devices").withDescription("Browse all supported devices.").withCheckable(true).withIcon(GoogleMaterial.Icon.gmd_list).withIdentifier(8),
                         new SectionDrawerItem().withName("Social Media"),
-                        new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(3),
-                        new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(4),
-                        new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(5),
-                        new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_web).withIdentifier(6),
+                        new PrimaryDrawerItem().withName("Google+").withDescription("Direct support with the devs.").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_message).withIdentifier(3),
+                        new PrimaryDrawerItem().withName("Pushbullet").withDescription("Ready for bleeding edge updates?!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_star).withIdentifier(4),
+                        new PrimaryDrawerItem().withName("GitHub").withDescription("Come join our open source development!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_developer_mode).withIdentifier(5),
+                        new PrimaryDrawerItem().withName("Official Site").withDescription("Come check our site out!").withCheckable(false).withIcon(GoogleMaterial.Icon.gmd_open_in_browser).withIdentifier(6),
                         new DividerDrawerItem(),
                         new SecondaryDrawerItem().withName("About the App").withIcon(GoogleMaterial.Icon.gmd_info_outline).withIdentifier(2)
                 )
@@ -307,6 +307,15 @@ public class MainActivity extends AppCompatActivity {
                                             showNotSupportedDialog();
                                             break;
                                     }
+                                    break;
+                                case 8:
+                                    switchFragment(8, "All Supported Devices", "SupportedDevices");
+                                    break;
+                                case 9:
+                                    switchFragment(9, "Developers", "Dev");
+                                    break;
+                                case 10:
+                                    switchFragment(10, "Maintainers", "Maintainer");
                                     break;
                             }
 
