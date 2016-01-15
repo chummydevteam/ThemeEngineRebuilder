@@ -140,7 +140,7 @@
     <!-- All Supported Devices -->
     <string name="supported_device_title">"All supported devices"</string>
     <string name="apply_for_maintainer_title">"Don't see your device? Click here to apply to be an official maintainer!"</string>
-    <string name="apply_for_maintainer">"https://docs.google.com/forms/d/1lofJAsGSgb6IFchFe8zq132a8GY80Pkvh48jtQ6B5OU/edit?usp=docslist_api"</string>
+    <string name="apply_for_maintainer">"https://docs.google.com/forms/d/1lofJAsGSgb6IFchFe8zq132a8GY80Pkvh48jtQ6B5OU/viewform"</string>
 
     <string name="asus_zenfone2">"ASUS Zenfone 2"</string>
     <string name="htc_one_m8">"HTC One M8"</string>
