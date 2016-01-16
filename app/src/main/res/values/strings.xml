@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Theme Rebuilder</string>
-    <string name="rebuild_disclaimer">"WARNING: This will completely destroy caches for all CM themes installed on your device, allowing your next boot to build all your themes again directly from the APK.\n\nThis should be used after a dirty flash with the theme applied.\n\nYour next boot duration will be directly proportional to the amount of themes you have installed on your device.\n\nIt is recommended for you to reboot one more time after the cache rebuild, so that you clear yourself from lags and stutters."</string>
+    <string name="rebuild_disclaimer">"WARNING: This will completely destroy caches for all CM themes installed on your device, allowing your next boot to build all your themes again directly from the APK.
+
+After the first reboot, let the device settle (imagine installing all themes all over again) for around 1 minute per theme on your phone - at this point, your phone should be lagging. Reboot again after so that CM Theme Engine initializes it's configuration properly.
+
+Your next boot duration will be directly proportional to the amount of themes you have installed on your device.
+
+TL;DR: After using this app, reboot once, wait 1 minute per theme you have installed, then reboot one more time."</string>
     <string name="notification_success">"."</string>
 </resources>
