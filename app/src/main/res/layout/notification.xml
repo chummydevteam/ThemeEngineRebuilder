@@ -1,28 +1,32 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/layout"
+    android:background="@color/notification_background"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="center"
-    android:padding="8dp">
+    android:padding="10dp">
 
     <ImageView
         android:id="@+id/notifimage"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:layout_alignParentLeft="true"
-        android:layout_marginRight="10dp" />
+        android:layout_marginRight="10dp"
+        android:tint="@color/notification_icon_tint" />
 
     <TextView
         android:id="@+id/notiftitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/notifimage"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/notification_primary"/>
 
     <TextView
         android:id="@+id/notiftext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/notiftitle"
-        android:layout_toRightOf="@id/notifimage" />
+        android:layout_toRightOf="@id/notifimage"
+        android:textColor="@color/notification_secondary"/>
 </RelativeLayout>

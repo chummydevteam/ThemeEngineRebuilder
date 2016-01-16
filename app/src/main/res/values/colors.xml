@@ -2,4 +2,8 @@
 <resources>
     <color name="accent">#ffffff</color>
     <color name="dialog_background">#212021</color>
+    <color name="notification_background">#000000</color>
+    <color name="notification_icon_tint">#ffffff</color>
+    <color name="notification_primary">#ffffff</color>
+    <color name="notification_secondary">#aeaeae</color>
 </resources>
