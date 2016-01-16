@@ -14,8 +14,8 @@ android {
         applicationId "com.chummy.jezebel.theme.rebuilder"
         minSdkVersion 22
         targetSdkVersion 22
-        versionCode 6
-        versionName "6.0.0"
+        versionCode 1
+        versionName "1.0.0"
     }
     buildTypes {
         debug {
